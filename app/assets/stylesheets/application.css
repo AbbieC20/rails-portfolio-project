@@ -1,0 +1,96 @@
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ 
+ body {
+    background-color: rgba(204, 206, 207, 0.452);
+ }
+
+ .navbar-inverse {
+    background-color: #0f7fa1;
+    border-color: #0f7fa1;
+    padding: 30px 0px 30px 0px;
+}
+
+a.navbar-brand {
+    color: #acb1b4;
+    padding: 0px 15px 30px 15px;
+    text-decoration: underline;
+    font-family: monospace; 
+    font-size: 25px;
+    font-weight: 250;
+}
+
+.pages {
+    font-family: monospace; 
+    padding: 0px 0px 0px 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    background-color: rgba(204, 206, 207, 0.452);
+    border-color: #095c9c;
+    border-width: 3px;
+    font-family: monospace; 
+    font-size: 22px;
+    color: #095c9c;
+}
+
+input[type="submit" i] {
+    background-color: rgba(204, 206, 207, 0.452);
+    border-color: #095c9c;
+    border-width: 3px;
+    font-family: monospace; 
+    font-size: 22px;
+    color: #095c9c;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #095c9c;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    color: #1e67a0;
+    font-size: 27px;
+}
+
+h3 {
+    color: #1e67a0;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+p {
+    font-size: 15px;
+    font-weight: lighter; 
+}
+
+.content {
+    font-size: 17px;
+    font-weight: lighter;
+}
+
+.forms {
+    color: #1e67a0;
+    font-size: 20px;
+}
+
+.notice {
+    font-size: 18px;
+    color: rgb(91, 44, 165);
+}
+
+.field_with_errors {
+    padding: 1px;
+    background-color: rgb(150, 122, 194);
+    display: table;
+  }

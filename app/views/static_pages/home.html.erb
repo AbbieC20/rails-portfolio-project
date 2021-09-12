@@ -1,0 +1,40 @@
+<% if !logged_in %>
+    <h2> Welcome!</h2>
+    <div class="greeting">
+        <h3> Our mission is to make it easy to meet peers, join communities and learn more. </h3>
+    </div>
+    <img src="home.jpg" height="450" width="900">
+<% end %>
+
+<% if logged_in %>
+    <div class="notice">
+        <%= notice %>
+    </div>
+        <h2>Welcome back <%= current_user.name %></h2>
+    <% if current_user.admin %>
+        <h4><i>Please note that you are logged in as Admin Access. This means you are still be able to access our normal offering, but also additional functionality.</i></h4>
+    <% end %>
+    <h3>Home City: <%= current_user.location %></h3><br>
+    <h2>Your Communities </h2>
+    <h3>Previous Events: </h3>
+    <% @previous_events.each do |event| %>
+        <p><i><%= event.name %></i></p>
+    <% end %>
+    <h3>Upcoming Events: </h3>
+    <div class="content">
+        <% @upcoming_events.each do |event| %>
+            <%= event.name %> - <%= event.show_date %>
+        <% end %>
+    </div>
+    <br>
+    <h2>Want to find more? </h2>
+    <div class="content">
+        <%= link_to "Look at our Calendar", events_path %></h3>
+    </div>
+    <br>
+    <% if current_user.admin %>
+        <h2>Admin Access - Add in a New Event </h2>
+        <h3><%= link_to "Create a New Event", new_event_path %></h3>
+    <% end %>
+    <br>
+<% end %>

@@ -1,0 +1,11 @@
+<h3>Add a New Sponsor</h3>
+<p>In order to be accessible for all admins, you are able to add in new event sponsors through the below form.</p><br>
+
+<div class="content">
+    <%= form_for @sponsor do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %><br><br>
+        <br>
+        <%= f.submit %>
+    <% end %>
+</div>

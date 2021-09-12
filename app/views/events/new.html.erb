@@ -1,0 +1,35 @@
+<h2>Create a New Event</h2>
+<p>Before loading a new event into our calendar, please ensure you have all the required information.</p>
+
+<div class="content">
+    <%= form_for @event do |f| %>
+        <% if @event.errors.any? %>
+            <div class="notice">
+                <ul>
+                    <% @event.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <%= f.label :name %>
+        <%= f.text_field :name %><br><br>
+        <%= f.label :location %>
+        <%= f.text_field :location %><br><br>
+        <%= f.label :date_field, "Date" %>
+        <%= f.text_field :date_field %><br><br>
+        <%= f.label :time %>
+        <%= f.text_field :time %><br><br>
+        <%= f.label :organiser_id %>
+        <%= f.select :organiser_id, Organiser.all.collect { |o| [ o.name, o.id ] } %><br><br>
+        <%= f.label :sponsor_id %>
+        <%= f.select :sponsor_id, Sponsor.all.collect { |s| [ s.name, s.id ] } %><br><br>
+        <%= f.submit %>
+    <% end %>
+</div>
+
+<br><h3> Missing your event's Organiser or Sponsor? Add them in here.</h3>
+<div class="content">
+    <%= link_to "Add in a New Organiser", new_organiser_path %><br><br>
+    <%= link_to "Add in a New Sponsor", new_sponsor_path %>
+</div>

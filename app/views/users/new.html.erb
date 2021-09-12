@@ -1,0 +1,15 @@
+<h2>Create an Account </h2>
+<br>
+<div class="forms">
+    <%= form_for @user do |f| %>
+        <%= f.label :name, 'Name:' %>
+        <%= f.text_field :name %>
+        <%= f.label :password, 'Password:'%>
+        <%= f.password_field :password %> <br><br>
+        <%= f.label :location, 'Home City:' %>
+        <%= f.text_field :location %>
+        <%= f.label :admin, 'Are you an Admin?' %>
+        <%= f.check_box :admin, options = {:class => "user_admin"} %><br><br>
+        <%= f.submit "Get Started!" %>
+    <% end %>
+</div>

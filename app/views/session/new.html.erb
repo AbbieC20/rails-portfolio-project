@@ -1,0 +1,18 @@
+<h2> Sign into your Account </h2>
+<br>
+<div class="notice">
+    <%= notice %>
+</div>
+<br>
+<div class="forms">
+    <%= form_tag("/signin", method: "post") do %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        Name: <%= text_field_tag :name %>
+        Password: <%= password_field_tag :password %><br><br>
+        <%= submit_tag "Sign In" %>
+    <% end %>
+</div>
+<br><br>
+<div class="content">
+    <%= link_to 'Sign in with GitHub', '/auth/github', method: :post %></h3>
+</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsPortfolioProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <% if !logged_in %>
+          <a class="navbar-brand" href="<%= signup_url %>"/>Sign Up</a>
+          <a class="navbar-brand" href="<%= signin_url %>"/>Sign In</a>
+        <% else %>
+          <a class="navbar-brand" href="<%= logout_url %>"/>Log Out</a>
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="pages">
+      <h1>Your Coding Community</h1>
+      <%= yield %>
+    </div>
+  </body>
+</html>
