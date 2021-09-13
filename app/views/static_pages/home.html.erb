@@ -12,29 +12,31 @@
     </div>
         <h2>Welcome back <%= current_user.name %></h2>
     <% if current_user.admin %>
-        <h4><i>Please note that you are logged in as Admin Access. This means you are still be able to access our normal offering, but also additional functionality.</i></h4>
+        <p>Please note that you are logged in as Admin Access. This means you are still be able to access our normal offering, but also additional functionality.</p>
     <% end %>
     <h3>Home City: <%= current_user.location %></h3><br>
     <h2>Your Communities </h2>
     <h3>Previous Events: </h3>
     <% @previous_events.each do |event| %>
         <p><i><%= event.name %></i></p>
+        <p><i><%= event.name %></i></p>
     <% end %>
     <h3>Upcoming Events: </h3>
     <div class="content">
         <% @upcoming_events.each do |event| %>
-            <%= event.name %> - <%= event.show_date %>
+            <%= event.name %> - <%= event.show_date %><br>
         <% end %>
     </div>
     <br>
     <h2>Want to find more? </h2>
     <div class="content">
-        <%= link_to "Look at our Calendar", events_path %></h3>
-    </div>
-    <br>
-    <% if current_user.admin %>
-        <h2>Admin Access - Add in a New Event </h2>
-        <h3><%= link_to "Create a New Event", new_event_path %></h3>
-    <% end %>
-    <br>
+            <%= link_to "Look at our Calendar", events_path %></h3>
+        <br>
+        <% if current_user.admin %>
+            <h2>Admin Access - Add in a New Event </h2>
+            <%= link_to "Create a New Event", new_event_path %>
+        <% end %>
+        <br>
+</div>  
+
 <% end %>

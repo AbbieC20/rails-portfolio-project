@@ -36,8 +36,16 @@ Event.create([{
     location: "Google - St Pancras Offices",
     date: Date.parse("25th September 2021"),
     time: "14:30",
+    organiser: organiser1,
+    sponsor: sponsor3
+  },
+  {
+    name: "Have a bash at Bash",
+    location: "WeWork - Oxford Street",
+    date: Date.parse("19th September 2021"),
+    time: "19:30",
     organiser: organiser2,
-    sponsor: sponsor2
+    sponsor: sponsor3
   },
   {
     name: "Women Who Code Introduction",

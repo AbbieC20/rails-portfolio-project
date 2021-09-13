@@ -66,16 +66,18 @@ h2 {
 h3 {
     color: #1e67a0;
     font-weight: lighter;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 p {
-    font-size: 15px;
+    font-size: 18px;
+    font-style: italic;
     font-weight: lighter; 
+    padding-top: 0px;
 }
 
 .content {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: lighter;
 }
 
