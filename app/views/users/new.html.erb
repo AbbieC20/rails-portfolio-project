@@ -1,5 +1,9 @@
 <h2>Create an Account </h2>
 <br>
+<div class="notice">
+    <%= notice %>
+</div>
+<br>
 <div class="forms">
     <%= form_for @user do |f| %>
         <%= f.label :name, 'Name:' %>

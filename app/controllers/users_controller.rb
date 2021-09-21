@@ -22,7 +22,8 @@ class UsersController < ApplicationController
           session[:user_id] = user.id
           redirect_to root_url
         else 
-          render :new
+          redirect_to signup_url
+          flash[:notice] = "You haven't filled out everything yet - please try again."
         end 
       end
     end

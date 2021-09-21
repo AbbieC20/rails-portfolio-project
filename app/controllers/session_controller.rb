@@ -6,20 +6,21 @@ class SessionController < ApplicationController
   
     def create
       if params[:provider] === "github"
-        nickname = request.env['omniauth.auth']["info"]["nickname"]
+        nickname = auth["info"]["nickname"]
         @user = User.find_by(name: nickname)
         if @user.nil? 
           @user = User.create(name: nickname, password: "CreatedbyOAuth", location: "N/A", admin: false)
         end
         session[:user_id] = @user.id
-        session[:omniauth_data] = request.env['omniauth.auth']
+        session[:omniauth_data] = auth
         redirect_to root_url
-      elsif params[:name] != nil
+      elsif params[:name] != nil && params[:password_digest] != nil
         @user = User.find_by(name: params[:name])
         session[:user_id] = @user.id
         redirect_to root_url
       else
-        render 'new'
+        redirect_to signin_url
+        flash[:notice] = "Sign In unsuccessful - please try again."
       end
     end
   

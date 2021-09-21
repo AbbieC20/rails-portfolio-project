@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
-    before_action :find_event, only: [:show, :edit, :update]
-    before_action :admin_only, except: [:index, :show]
-    
+   
     def index
         @events = Event.all
         @previous_events = current_user.events.where('date', DateTime.now)
