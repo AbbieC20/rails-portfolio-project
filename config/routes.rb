@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'session#destroy'
   post '/bookings', to: 'bookings#create'
   match '/auth/:provider/callback', to: 'session#create', via: [:get, :post]
+  get '/popularevents', to: 'events#popular_events'
 end
 
 

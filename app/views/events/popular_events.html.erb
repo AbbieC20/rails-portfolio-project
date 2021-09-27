@@ -1,0 +1,7 @@
+<h2>Admin Access: Our Top Events</h2>
+<h3>Interested in our most popular events? We have listed the Top 3 most booked events below.</h3>
+<h3>You can find out the individual attendees for each event, under their relevant listing. </h3>
+<hr>
+<% @event_attendances.each do |e| %>
+  <p>Event: <%= e.name %>' <br> Attendees: <%= e.attendees %> --- Event Date: <%= e.show_date %></p>
+<% end %>

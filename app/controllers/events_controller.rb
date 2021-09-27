@@ -1,8 +1,7 @@
 class EventsController < ApplicationController
-   
+
     def index
         @events = Event.all
-        @previous_events = current_user.events.where('date', DateTime.now)
     end
 
     def show
@@ -19,6 +18,15 @@ class EventsController < ApplicationController
         redirect_to events_url
       else 
         render :new
+      end
+    end
+
+    def popular_events
+      if current_user.admin
+        @event_attendances = Event.events_by_attendance
+      else
+        flash[:notice] = "You must have Admin Access to perform that function!"
+        redirect_to root_url
       end
     end
 

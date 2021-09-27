@@ -5,6 +5,7 @@ class Event < ApplicationRecord
     has_many :users, :through => :bookings
     belongs_to :organiser
     belongs_to :sponsor
+    scope :events_by_attendance, ->(max_events = 3) { joins(:bookings).group('event_id').select('events.*, COUNT(user_id) as attendees').order(attendees: :desc).limit(max_events) }
     validates :name, presence: true
     validates :location, presence: true
     validates :date_field, presence: true

@@ -1,6 +1,6 @@
 class SessionController < ApplicationController 
 
-    def new
+  def new
       @user = User.new
     end
   
@@ -14,10 +14,16 @@ class SessionController < ApplicationController
         session[:user_id] = @user.id
         session[:omniauth_data] = auth
         redirect_to root_url
-      elsif params[:name] != nil && params[:password_digest] != nil
-        @user = User.find_by(name: params[:name])
-        session[:user_id] = @user.id
-        redirect_to root_url
+      elsif
+        user = User.find_by(name: params[:name])
+        authenticated = user.try(:authenticate, params[:password])
+        if authenticated
+          session[:user_id] = user.id
+          redirect_to root_url
+        else
+          redirect_to signin_url
+          flash[:notice] = "Sign In unsuccessful - please try again."  
+        end
       else
         redirect_to signin_url
         flash[:notice] = "Sign In unsuccessful - please try again."

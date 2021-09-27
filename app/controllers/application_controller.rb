@@ -18,10 +18,4 @@ class ApplicationController < ActionController::Base
       !!session[:user_id] && current_user != nil 
     end
   
-    def admin_only
-      unless current_user.admin
-        flash[:notice] = "You must have Admin Access to perform that function!"
-        redirect_to user_path(current_user)
-      end
-    end
 end
